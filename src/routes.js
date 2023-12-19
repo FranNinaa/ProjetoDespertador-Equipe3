@@ -9,6 +9,9 @@ router.get('/', (req, res) => {
 });
 
 // Rota para obter a hora atual
-router.get("/horaCerta", DateTimeController.show)
+router.get("/horaCerta", DateTimeController.showTime)
 
-export default router; // Exporte as rotas para uso em outros arquivos
+//  Rota para obter a data atual
+router.get("/hoje", DateTimeController.showDate);
+
+export default router; 
