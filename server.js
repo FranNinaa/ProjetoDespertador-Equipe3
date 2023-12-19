@@ -1,6 +1,6 @@
-// server.js
 import express from 'express';
-import routes from './src/routes.js'; // Importe as rotas do arquivo routes.js
+import routes from './src/routes.js'; 
+import 'dotenv/config';
 
 const app = express();
 const PORT = process.env.PORT || 3030;
@@ -13,4 +13,4 @@ app.listen(PORT, () => {
   console.log(`Servidor Despertador iniciado na porta ${PORT}`);
 });
 
-export default app; // Exporte o aplicativo para uso em outros arquivos
+export default app; 
