@@ -1,0 +1,16 @@
+{
+  "name": "projetodespertador-equipe3",
+  "version": "1.0.0",
+  "description": "Projeto despertador e Meteorologia",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Equipe 3",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
