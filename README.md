@@ -10,19 +10,19 @@ A equipe é composta por:
 - [Amabile Forster](https://github.com/AmabileForster)
 - [Francine dos Santos](https://github.com/FranNinaa)
 
-### Objetivos
+## Objetivos
 Este projeto visa aplicar na prática o uso de JavaScript no Backend com Node.js, fortalecendo os conceitos de consumo de API, processamento assíncrono, lógica de programação e interpretação de especificações técnicas. A dinâmica do desenvolvimento em equipe segue metodologias ágeis, com papéis definidos (Scrum Master, Tech Lead, Desenvolvedor) para simular um ambiente de trabalho em uma empresa de TI.
 
-### Papéis na Equipe
+## Papéis na Equipe
 - **Scrum Master:** Responsável por moderar as reuniões da equipe, garantir a adesão à metodologia Agile e facilitar correções em desvios.
 - **Tech Lead:** Além de desenvolver, é responsável por criar o repositório no GitHub, consolidar alterações e ser líder técnico para dúvidas da equipe.
 - **Desenvolvedores:** Integrantes da equipe que desempenham o papel de desenvolvedor.
   
-### Ambiente de Trabalho
+## Ambiente de Trabalho
 - **Kanban:** Utilização do Trello para criar um Quadro Kanban e monitorar o progresso.
 - **GitHub:** Criação de um repositório para a equipe, concedendo acesso a cada integrante.
   
-### O Projeto
+## O Projeto
 **Descrição Funcional**
 Desenvolver um Relógio-Despertador que apresente a hora, dados meteorológicos da cidade do usuário, data atual, mensagem de boas-vindas e a capacidade de programar alarmes com lembretes personalizados. O relógio possui seu próprio mecanismo de contagem de tempo e sincroniza automaticamente a Hora Certa com o servidor.
 
@@ -38,7 +38,8 @@ Desenvolver um Relógio-Despertador que apresente a hora, dados meteorológicos 
 - Alarmes
 - Novo Alarme
   
-**Detalhamento das Telas**
+## Detalhamento das Telas  
+
 ### Tela Principal
  - Invoca métodos para obter dados climáticos, hora certa, data atual e mensagem de boas-vindas.
 - Atualiza automaticamente a cada 15 minutos, horas cheias e mudança do dia.
@@ -56,6 +57,7 @@ Desenvolver um Relógio-Despertador que apresente a hora, dados meteorológicos 
 - Link para a Tela Principal.
   
 ## Detalhamento do Backend
+
 ### Endpoints
 **a. Informações Meteorológicas**
 
@@ -92,7 +94,7 @@ Desenvolver um Relógio-Despertador que apresente a hora, dados meteorológicos 
 - Mapeamento: (GET) /config
 - Retorno: Objeto com status, mensagem e configurações.
   
-### Design
+## Design
 As telas devem seguir paletas de cores específicas para diferentes momentos do dia, proporcionando uma experiência visual agradável.
 
 ### Protótipo das Telas
