@@ -38,7 +38,7 @@ Desenvolver um Relógio-Despertador que apresente a hora, dados meteorológicos 
 - Alarmes
 - Novo Alarme
   
-**Detalhamento das Telas**
+## Detalhamento das Telas**
 ### Tela Principal
  - Invoca métodos para obter dados climáticos, hora certa, data atual e mensagem de boas-vindas.
 - Atualiza automaticamente a cada 15 minutos, horas cheias e mudança do dia.
