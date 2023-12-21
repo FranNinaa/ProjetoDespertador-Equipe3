@@ -5,7 +5,7 @@ import 'dotenv/config';
 const app = express();
 const PORT = process.env.PORT || 3030;
 
-// Use as rotas no aplicativo
+
 app.use('/', routes);
 
 // Iniciar o servidor
