@@ -26,5 +26,7 @@ router.get("/msn", MensagemController.getMsn);
 //Rota Buscar todas as configurações salva no banco de dados
 router.get("/config",ConfigController.getConfig);
 
+//Rota para salvar as configurações no banco de dados
+router.post('/config', ConfigController.postConfig);
 
 export default router; 
