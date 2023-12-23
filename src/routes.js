@@ -1,8 +1,8 @@
 import { Router } from "express"
 import DateTimeController from "./app/controllers/DateTimeController.js"
 import WeatherController from "./app/controllers/WeatherController.js"
-import AlarmeController from "./app/controllers/MensagemController.js"; 
 import MensagemController from "./app/controllers/MensagemController.js";
+import ConfigController from "./app/controllers/ConfigController.js";
 
 const router = Router();
 
@@ -22,5 +22,9 @@ router.get("/clima", WeatherController.getClima);
 
 // Rota para mensagem de boas-vindas conforme o horário
 router.get("/msn", MensagemController.getMsn);
+
+//Rota Buscar todas as configurações salva no banco de dados
+router.get("/config",ConfigController.getConfig);
+
 
 export default router; 

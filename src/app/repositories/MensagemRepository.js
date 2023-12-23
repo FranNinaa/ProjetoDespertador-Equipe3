@@ -1,4 +1,6 @@
 import fetch from 'node-fetch';
+//import ConfigRepository from './ConfigRepository.js';
+
 
 class MensagemRepository {
     async getClima(cidade) {
@@ -13,12 +15,9 @@ class MensagemRepository {
     }
 
 
-    getConfig() {
-        // Adquira o nome do usuário do cadastro do sistema.
-        // Substitua isso com a lógica real de obtenção da configuração.
-        const userName = "Mr. Hendrik"; // Exemplo fictício do nome do usuário.
-        return userName;
-    }
+  // async getConfig() {
+    //return ConfigRepository.getConfig();
+  // }
 
     //esta cometado pois  a api nao esta retornando o nascer do sol da null
     //async getSunrise() {
@@ -34,7 +33,7 @@ class MensagemRepository {
 
    
     async getMensagem() {
-        const name = this.getConfig();
+        //const name = await this.getConfig();
         const sunsetTime = await this.getClima('São Paulo'); // Substitua 'cidade' pela cidade desejada
         const currentTime = new Date();
         const hour = currentTime.getHours();
