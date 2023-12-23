@@ -13,7 +13,17 @@ class ConfigRepository {
         });
     }
 
-    
+    adicionarConfiguracao(configData) {
+        const sql = "INSERT INTO configuracoes (formatoHora, escalaTemp, cidade, sexo, nome) VALUES (?, ?, ?, ?, ?)";
+        return new Promise((resolve, reject) => {
+            conexao.query(sql, [configData.formatoHora, configData.escalaTemp, configData.cidade, configData.sexo, configData.nome], (erro, resultados) => {
+                if (erro) {
+                    return reject(erro);
+                }
+                resolve(resultados);
+            });
+        });
+    }
 }
 
 export default new ConfigRepository();
