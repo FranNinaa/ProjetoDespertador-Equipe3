@@ -1,0 +1,61 @@
+/* Estilo para a tela 3*/
+body{
+    background-color: #f3b3a9;
+}
+
+h1{
+    font-family:  'Times New Roman', Times, serif;
+    font-size: 40px;
+    color: #000000;
+    text-align: top left;
+    margin-top: 30px;
+    padding: 40px; 
+}
+
+.new-alarm{
+    position: fixed; 
+    top: 0;
+    right: 0;
+    padding: 40px; 
+   
+}
+
+.clock-icon {
+    width: 50px; 
+    height: auto;    
+    display: block;  
+    margin: 0 auto;  
+    padding: 40px; 
+}
+
+.clock-icon:hover {
+    cursor: pointer;  
+    opacity: 0.8;    
+}
+
+.relative-container {
+    position: relative; 
+}
+
+.clock-icon {
+    position: fixed;
+    right: 10px;   
+    width: 50px;
+    bottom: 50px;
+    height: auto;
+}
+
+.body-background {
+    position: fixed;
+    right: 65%; 
+    bottom: -20%; 
+    width: 70vw; 
+    height: 80vh; 
+    background-image: url('../assts/time_icon.png'); 
+    background-position:  bottom right; 
+    background-repeat: no-repeat;
+    background-size: auto 80vh; 
+    z-index: -1;
+    overflow: hidden; 
+}
+

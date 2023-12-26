@@ -3,7 +3,6 @@ import ConfigRepository from '../repositories/ConfigRepository.js';
 class ConfigController {
   async getConfig(req, res) {
     try {
-      // Chame o método listarConfiguracoes em vez de getConfig
       const configuracoes = await ConfigRepository.listarConfiguracoes();
       res.status(200).json(configuracoes);
     } catch (erro) {
@@ -15,11 +14,11 @@ class ConfigController {
     const {formatoHora, escalaTemp, cidade, sexo, nome} = req.body;
 
     //validação dos campos
-    if(!formatoHora) return res.status(400).json({satus:1, mensagem: "O campo Formato Hora é não informado"});
-    if(!escalaTemp) return res.status(400).json({satus:1, mensagem: "O campo Escala Temperatura é não informado"});
-    if(!cidade) return res.status(400).json({satus:1, mensagem: "O campo Cidade é não informado"});
-    if(!sexo) return res.status(400).json({satus:1, mensagem: "O campo Sexo é não informado"});
-    if(!nome) return res.status(400).json({satus:1, mensagem: "O campo Nome é não informado"});
+    if(!formatoHora) return res.status(400).json({satus:1, mensagem: "O campo Formato Hora não é informado"});
+    if(!escalaTemp) return res.status(400).json({satus:1, mensagem: "O campo Escala Temperatura não é informado"});
+    if(!cidade) return res.status(400).json({satus:1, mensagem: "O campo Cidade não informado"});
+    if(!sexo) return res.status(400).json({satus:1, mensagem: "O campo Sexo não é informado"});
+    if(!nome) return res.status(400).json({satus:1, mensagem: "O campo Nome não é informado"});
 
     try {
       await ConfigRepository.adicionarConfiguracao({ formatoHora, escalaTemp, cidade, sexo, nome });
