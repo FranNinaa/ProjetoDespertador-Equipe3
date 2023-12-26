@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>New Alarm</title>
+    <link rel="stylesheet" type="text/css" href="../css/styleTela4.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="title">New Alarm</h1>
+
+        <div class="form-group">
+            <label for="time" class="title-time">Time</label>
+            <input type="time" id="time" class="input-clock">
+            <div class="am-pm-selector">
+                <input type="radio" id="am" name="am-pm" value="AM" checked>
+                <label for="am">am</label>
+                <input type="radio" id="pm" name="am-pm" value="PM">
+                <label for="pm">pm</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="text" id="description" class="input-field" placeholder="Description">
+        </div>
+        <button class="save-button">Save</button>
+    </div>
+
+    <a href="index.html"> <!-- caminho para tela principal -->
+        <img src="../assts/time_icon.png" alt="Clock Icon" class="clock-icon" />
+    </a>
+    <div class="inverted-background-image"></div>
+
+</body>
+
+</html>
