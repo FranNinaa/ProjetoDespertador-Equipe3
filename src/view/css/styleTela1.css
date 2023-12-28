@@ -1,0 +1,69 @@
+/* Paleta de cores */
+
+:root {
+/* Sunrise (Do nascer do Sol até 12h) */
+    --sunrise1: #ffe0bf;
+    --sunrise2: #f3b3a9;
+    --sunrise3: #e88ea0;
+    --sunrise4: #c885b9;
+    --sunrise5: #9863b1;
+
+
+/* Noon Das (12:00:01 até (pôr do sol - 00:30:00)) */
+
+    --noon1: #d1f5f3;
+    --noon2: #aeecf3;
+    --noon3: #5fd7f9;
+    --noon4: #54b3ed;
+    --noon5: #fefed9;
+
+
+/* Afternoon (Do pôr do sol até 22:00:00) */
+
+    --afternoon1: #ffe27f;
+    --afternoon2: #fbaf55;
+    --afternoon3: #fc8324;
+    --afternoon4: #c55532;
+    --afternoon5: #bd4c2e;
+
+
+/* Night (Das 22:00:01 até o nascer do Sol) */
+
+    --night1: #dbdafc;
+    --night2: #9594c8;
+    --night3: #4c4690;
+    --night4: #3d3473;
+    --night5: #373252;
+
+/* Neutral (complemento)*/
+
+    --neutral1: #ffffff;
+    --neutral2: #bcbcbc;
+    --neutral3: #8c8c8c;
+    --neutral4: #565656;
+    --neutral5: #2a2a2a;
+}
+
+/* Background */
+
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.background {
+    background-color: var(--neutral5);
+}
+
+p {
+    color: var(--neutral1);
+}
+
+.fonte-relogio {
+    font-size: 10rem;
+}
