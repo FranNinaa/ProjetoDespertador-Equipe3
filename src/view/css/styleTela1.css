@@ -1,3 +1,5 @@
+@import url('stylesheetGeral.css');
+
 /* Background */
 html, body{
     height: 100%;
@@ -17,6 +19,134 @@ p {
     color: var(--neutral1);
 }
 
-.fonte-relogio {
-    font-size: 10rem;
+
+/* Botão */
+.button {
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid var(--afternoon2); /* Cor da borda do botão */
+    color: var(--afternoon2); /* Cor do texto do botão */
+    background-color: var(--neutral5); /* Cor de fundo do botão */
+    border-radius: 4px; /* Raio das bordas do botão */
+    transition: background-color 0.3s, color 0.3s; /* Adiciona uma transição suave ao hover */
+}
+
+
+/* Hover */
+.button:hover {
+    background-color: var(--afternoon2); /* Cor de fundo ao passar o mouse */
+    color: var(--neutral5); /* Cor do texto ao passar o mouse */
+}
+
+.button2 {
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid var(--afternoon3); /* Cor da borda do botão */
+    color: var(--afternoon3); /* Cor do texto do botão */
+    background-color: var(--neutral5); /* Cor de fundo do botão */
+    border-radius: 4px; /* Raio das bordas do botão */
+    transition: background-color 0.3s, color 0.3s; /* Adiciona uma transição suave ao hover */
+}
+
+.button2:hover {
+    background-color: var(--afternoon2); /* Cor de fundo ao passar o mouse */
+    color: var(--neutral4); /* Cor do texto ao passar o mouse */
+}
+
+@media screen and (orientation: landscape) {
+    .relogio {
+        font-size: 1400%;
+        font-family: 'Digital', Helvetica, sans-serif;
+        margin-left: -3%;
+    }
+
+    .font-size {
+        font-size: 2rem;
+    }
+
+    .font-size2 {
+        font-size: 2.3rem;
+    }
+
+    .font-size3{
+        font-size: 2rem;
+    }
+
+    .config-margin {
+        margin-top: 5%;
+    }
+
+    .time-margin {
+        margin-top: 5%;
+    }
+
+    .text-margin {
+        margin-top: 1.5%;
+    }
+
+    .button {
+        padding: 0.5% 20%;
+    }
+
+    .button2 {
+        padding: 0.5% 20.7%;
+    }
+
+    .margin-negative {
+        margin-top: -9%;
+        margin-left: 4%;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    .relogio {
+        font-size: 600%;
+        font-family: 'Digital', Helvetica, sans-serif;
+        margin-left: -3%;
+    }
+
+    .font-size {
+        font-size: 1.3rem;
+    }
+
+    .font-size2 {
+        font-size: 2.3rem;
+    }
+
+    .font-size3{
+        font-size: 1rem;
+    }
+
+    .font-size4{
+        font-size: 0.7rem;
+    }
+
+    .config-margin {
+        margin-top: 37%;
+    }
+
+    .time-margin {
+        margin-top: 37%;
+    }
+
+    .text-margin {
+        margin-top: 2%;
+    }
+
+    .button {
+        padding: 0.5% 20%;
+    }
+
+    .button2 {
+        padding: 0.5% 22.3%;
+    }
+
+    .margin-negative {
+        margin-top: -10%;
+        margin-left: 2%;
+    } 
 }
