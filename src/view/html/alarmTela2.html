@@ -13,82 +13,81 @@
 
 <body>
     <div class="container-fluid h-100 background">
-        <div class="container custom-container pt-5 px-0">
+        <div class="container custom-container pt-4 px-0">
             <div class="row">
                 <p class="fs-1">Config</p>
             </div>
         </div>
-        <div class="container custom-container pt-5 px-0">
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-3">
-                    <p class="fs-1 my-0">Time Format</p>
+        <div class="container custom-container px-0 text-center">
+            <div class="card1 mb-3">
+                <div class="row">
+                    <div class="col">
+                        <p class="fs-1 my-0">Time Format</p>
+                    </div>
                 </div>
-                <div class="col"></div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <input type="radio" id="id12" name="nmTimeFormat" class="mt-3">
+                        <label for="id12" class="fs-2 pe-5">12</label>
+    
+                        <input type="radio" id="id24" name="nmTimeFormat" class="mt-3" checked>
+                        <label for="id24" class="fs-2">24</label>
+                    </div>
+                </div>
             </div>
-            <div class="row mb-4">
-                <div class="col-4"></div>
-                <div class="col-3">
-                    <input type="radio" id="id12" name="nmTimeFormat" class="form-check-input mt-3">
-                    <label for="id12" class="fs-2 pe-5">12</label>
-
-                    <input type="radio" id="id24" name="nmTimeFormat" class="form-check-input mt-3" checked>
-                    <label for="id24" class="fs-2">24</label>
+            <div class="card1 mb-3">
+                <div class="row">
+                    <div class="col">
+                        <p class="fs-1 my-0">Temperature</p>
+                    </div>
                 </div>
-                <div class="col"></div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <input type="radio" id="idCelsius" name="nmTemperatureFormat" class="mt-3" checked>
+                        <label for="idCelsius" class="fs-2 pe-5">ºC</label>
+    
+                        <input type="radio" id="idFahrenheit" name="nmTemperatureFormat" class="mt-3">
+                        <label for="idFahrenheit" class="fs-2 pe-5">ºF</label>
+    
+                        <input type="radio" id="idKelvin" name="nmTemperatureFormat" class="mt-3">
+                        <label for="idKelvin" class="fs-2">ºK</label>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-3">
-                    <p class="fs-1 my-0">Temperature</p>
+            <div class="card2 mb-3">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="nmCity" id="idCity" placeholder="City" class="">
+                    </div>
                 </div>
-                <div class="col"></div>
             </div>
-            <div class="row mb-4">
-                <div class="col-4"></div>
-                <div class="col-3">
-                    <input type="radio" id="idCelsius" name="nmTemperatureFormat" class="form-check-input mt-3" checked>
-                    <label for="idCelsius" class="fs-2 pe-5">ºC</label>
-
-                    <input type="radio" id="idFahrenheit" name="nmTemperatureFormat" class="form-check-input mt-3">
-                    <label for="idFahrenheit" class="fs-2 pe-5">ºF</label>
-
-                    <input type="radio" id="idKelvin" name="nmTemperatureFormat" class="form-check-input mt-3">
-                    <label for="idKelvin" class="fs-2">ºK</label>
+            <div class="card3 mb-3">
+                <div class="row">
+                    <div class="col">
+                        <input type="radio" id="idMr" name="nmMrOrMrs" class="mt-3" checked>
+                        <label for="idMr" class="fs-2 pe-5">Mr</label>
+    
+                        <input type="radio" id="idMrs" name="nmMrOrMrs" class="mt-3">
+                        <label for="idMrs" class="fs-2">Mrs</label>
+                    </div>
                 </div>
-                <div class="col"></div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-4"></div>
-                <div class="col-3">
-                    <input type="text" name="nmCity" id="idCity" placeholder="City" class="form-control">
+                <div class="row  mb-4">
+                    <div class="col">
+                        <input type="text" name="nmName" id="idName" placeholder="Name" class="">
+                    </div>
                 </div>
-                <div class="col"></div>
-            </div>
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-3">
-                    <input type="radio" id="idMr" name="nmMrOrMrs" class="form-check-input mt-3" checked>
-                    <label for="idMr" class="fs-2 pe-5">Mr</label>
-
-                    <input type="radio" id="idMrs" name="nmMrOrMrs" class="form-check-input mt-3">
-                    <label for="idMrs" class="fs-2">Mrs</label>
-                </div>
-                <div class="col"></div>
-            </div>
-            <div class="row  mb-4">
-                <div class="col-4"></div>
-                <div class="col-3">
-                    <input type="text" name="nmName" id="idName" placeholder="Name" class="form-control">
-                </div>
-                <div class="col"></div>
             </div>
             <div class="row">
-                <div class="col-4"></div>
-                <div class="col-3 d-flex justify-content-end">
-                    <button class="btn btn-primary">Save</button>
+                <div class="col d-flex justify-content-end">
+                    <button class="button fs-2">Save</button>
                 </div>
-                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-end mt-5">
+                    <div class="pe-2 mt-5">
+                        <img src="../assts/time_icon_sm.png" alt="Config" width="100%">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
