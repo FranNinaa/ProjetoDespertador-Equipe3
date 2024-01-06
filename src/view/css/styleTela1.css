@@ -1,10 +1,23 @@
 @import url('stylesheetGeral.css');
 
 /* Background */
-html, body{
-    height: 100%;
-    margin: 0;
+@media (max-height: 929px) {
+    html,
+    body {
+        height: 929px;
+        margin: 0;
+    }
 }
+
+@media (min-height: 929px) {
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+    }
+}
+
+
 
 .row {
     margin-left: 0;
@@ -26,18 +39,25 @@ p {
     font-size: 16px;
     text-align: center;
     cursor: pointer;
-    border: 2px solid var(--afternoon2); /* Cor da borda do botão */
-    color: var(--afternoon2); /* Cor do texto do botão */
-    background-color: var(--neutral5); /* Cor de fundo do botão */
-    border-radius: 4px; /* Raio das bordas do botão */
-    transition: background-color 0.3s, color 0.3s; /* Adiciona uma transição suave ao hover */
+    border: 2px solid var(--afternoon2);
+    /* Cor da borda do botão */
+    color: var(--afternoon2);
+    /* Cor do texto do botão */
+    background-color: var(--neutral5);
+    /* Cor de fundo do botão */
+    border-radius: 4px;
+    /* Raio das bordas do botão */
+    transition: background-color 0.3s, color 0.3s;
+    /* Adiciona uma transição suave ao hover */
 }
 
 
 /* Hover */
 .button:hover {
-    background-color: var(--afternoon2); /* Cor de fundo ao passar o mouse */
-    color: var(--neutral5); /* Cor do texto ao passar o mouse */
+    background-color: var(--afternoon2);
+    /* Cor de fundo ao passar o mouse */
+    color: var(--neutral5);
+    /* Cor do texto ao passar o mouse */
 }
 
 .button2 {
@@ -45,16 +65,23 @@ p {
     font-size: 16px;
     text-align: center;
     cursor: pointer;
-    border: 2px solid var(--afternoon3); /* Cor da borda do botão */
-    color: var(--afternoon3); /* Cor do texto do botão */
-    background-color: var(--neutral5); /* Cor de fundo do botão */
-    border-radius: 4px; /* Raio das bordas do botão */
-    transition: background-color 0.3s, color 0.3s; /* Adiciona uma transição suave ao hover */
+    border: 2px solid var(--afternoon3);
+    /* Cor da borda do botão */
+    color: var(--afternoon3);
+    /* Cor do texto do botão */
+    background-color: var(--neutral5);
+    /* Cor de fundo do botão */
+    border-radius: 4px;
+    /* Raio das bordas do botão */
+    transition: background-color 0.3s, color 0.3s;
+    /* Adiciona uma transição suave ao hover */
 }
 
 .button2:hover {
-    background-color: var(--afternoon2); /* Cor de fundo ao passar o mouse */
-    color: var(--neutral4); /* Cor do texto ao passar o mouse */
+    background-color: var(--afternoon2);
+    /* Cor de fundo ao passar o mouse */
+    color: var(--neutral4);
+    /* Cor do texto ao passar o mouse */
 }
 
 @media screen and (orientation: landscape) {
@@ -72,7 +99,7 @@ p {
         font-size: 2.3rem;
     }
 
-    .font-size3{
+    .font-size3 {
         font-size: 2rem;
     }
 
@@ -117,11 +144,11 @@ p {
         font-size: 2.3rem;
     }
 
-    .font-size3{
+    .font-size3 {
         font-size: 1rem;
     }
 
-    .font-size4{
+    .font-size4 {
         font-size: 0.7rem;
     }
 
@@ -148,5 +175,5 @@ p {
     .margin-negative {
         margin-top: -10%;
         margin-left: 2%;
-    } 
+    }
 }
