@@ -1,24 +1,137 @@
-    /* Background */
-    
-    html, body{
+@import url('stylesheetGeral.css');
+
+/* Background */
+@media (max-height: 929px) {
+    html,
+    body {
+        height: 929px;
+        margin: 0;
+    }
+}
+
+@media (min-height: 929px) {
+    html,
+    body {
         height: 100%;
         margin: 0;
     }
-    
-    .row {
-        margin-left: 0;
-        margin-right: 0;
-    }
-    
-    .background {
-        background-color: #ffe0bf;
-    }
-    
-    p {
-        color: var(--neutral5);
-    }
-    
-    .fonte-relogio {
-        font-size: 10rem;
-    }
-    
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.background {
+    background-color: #ffdeba;
+    background-image: url('../assts/vector-icon.png');
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+p {
+    color: var(--neutral5);
+}
+
+/* Botão */
+.button {
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid var(--neutral1); /* Cor da borda do botão */
+    color: var(--neutral1); /* Cor do texto do botão */
+    background-color: var(--neutral4); /* Cor de fundo do botão */
+    border-radius: 4px; /* Raio das bordas do botão */
+    transition: box-shadow 0.3s, color 0.3s; /* Adiciona uma transição suave ao hover */
+    margin: 0 auto;
+    padding: 7px 30px;
+}
+
+
+/* Hover */
+.button:hover {
+    box-shadow: 0px 0px 10px 5px var(--neutral3);
+}
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--neutral5);
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Ponto interno */
+input[type="radio"]:checked::before {
+    content: "";
+    width: 80%;
+    height: 80%;
+    background-color: var(--sunrise5);
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+/* Input type text */
+input[type="text"] {
+    width: 100%;
+    padding: 1%;
+    border: 2px solid var(--neutral1);
+    border-radius: 4px;
+    transition: box-shadow 0.3s; /* Adiciona uma transição suave*/
+}
+
+/* Sombra roxa quando o input é focado */
+input[type="text"]:focus {
+    box-shadow: 0 0 8px var(--sunrise5);
+    outline: none;
+}
+
+input[type="text"] + label {
+    margin-left: 8px;
+    font-size: 1rem;
+}
+
+
+.card1 {
+    width: 300px;
+    height: 140px;
+    background-color: #ffdab3;
+    border-radius: 10px;
+    padding: 1%;
+    margin-bottom: 3%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.card2 {
+    width: 300px;
+    height: 70px;
+    background-color: #ffdab3;
+    border-radius: 10px;
+    padding: 1%;
+    margin-bottom: 3%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.card3 {
+    width: 300px;
+    height: 120px;
+    background-color: #ffdab3;
+    border-radius: 10px;
+    padding: 1%;
+    margin-bottom: 3%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
