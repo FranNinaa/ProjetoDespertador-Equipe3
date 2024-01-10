@@ -1,14 +1,19 @@
 import { Router } from "express"
+import path from 'path';
 import DateTimeController from "./app/controllers/DateTimeController.js"
 import WeatherController from "./app/controllers/WeatherController.js"
 import MensagemController from "./app/controllers/MensagemController.js";
 import ConfigController from "./app/controllers/ConfigController.js";
+import { fileURLToPath } from 'url';
 
 const router = Router();
+// Obter o caminho do diretório atual
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Rota inicial
 router.get('/', (req, res) => {
-  res.send('Bem-vindo ao Projeto Despertador!');
+    res.sendFile(path.join(__dirname, 'view/html/alarmTela1.html'));
 });
 
 // Rota para obter a hora atual
