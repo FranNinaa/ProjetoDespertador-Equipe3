@@ -76,9 +76,13 @@
             fetch('/horaCerta')
                 .then(response => response.json())
                 .then(data => {
+                    if (data.horaCerta == "00:00:00") {
+                        fetchDate()
+                    }
                     document.getElementById('current-time').textContent = data.horaCerta;
                 })
                 .catch(error => console.error('Erro ao buscar a hora atual:', error));
+ 
         }
 
         function getClima() {
@@ -96,6 +100,14 @@
             const hoje = new Date();
             const diaHoje = hoje.getDate();
 
+            fetch('/hoje')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('data-atual').textContent = data.dataCerta;
+                        diaAtual = diaHoje; // Atualiza o dia atual para o novo dia
+                        console.log(data)
+                    })
+                    .catch(error => console.error('Erro ao buscar a data atual:', error));
             // Se mudou para um novo dia, busca a data formatada e atualiza a tela
             if (diaHoje !== diaAtual) {
                 fetch('/hoje')
@@ -103,6 +115,7 @@
                     .then(data => {
                         document.getElementById('data-atual').textContent = data.dataCerta;
                         diaAtual = diaHoje; // Atualiza o dia atual para o novo dia
+                        console.log(data)
                     })
                     .catch(error => console.error('Erro ao buscar a data atual:', error));
             }
@@ -132,9 +145,6 @@
 
         // Chama a função getClima a cada 15 minutos
         setInterval(getClima, 900000); // 900000ms = 15 minutos
-
-        // Verifica a data a cada minuto
-        setInterval(fetchDate, 60000); // 60000ms = 1 minuto
 
        // Verifica a mensagem a cada hora
        setInterval(fetchMensagem, 3600000); // 3600000ms = 1 hora
