@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="icon" type="image/x-icon" href="assets/images/despertador.png">
     <link rel="stylesheet" type="text/css" href="../css/styleTela1.css" media="screen" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
+
     <div class="container-fluid h-100 background">
         <div class="container custom-container pt-4 px-0">
             <div class="row">
@@ -16,11 +20,6 @@
                     <p class="m-0 min-temp"></p>
                     <p class="m-0 max-temp"></p>
                     <p class="m-0 current-temp"></p>
-                    <p class="m-0 font-size2">Now: 23°C</p>
-                    <div class="d-flex">
-                        <p class="m-0 pe-3 ps-2">Min: 20°C</p>
-                        <p class="m-0">Max: 30°C</p>
-                    </div>
                 </div>
                 <div class="col px-0 mb-4">
                     <div class="float-end">
@@ -35,7 +34,7 @@
                         <p class="d-flex relogio mb-0" id="current-time">12:30:30</p>
                     </div>
                     <div>
-                        <p class="px-3 margin-negative font-size4">Fri, Jun 17th, 2022</p>
+                        <p id="data-atual" class=" px-3 margin-negative font-size4"></p>
                     </div>
                 </div>
                 <div class="col"></div>
@@ -43,10 +42,10 @@
             <div class="row">
                 <div class="text-center font-size">
                     <div class="text-margin">
-                        <p class="m-0 font-size3">Good afternoon Mr.Hendrik,its 12:30 pm.</p>
+                        <p  id="mensagem" class="mensagem m-0 font-size3"></p>
                     </div>
                     <div>
-                        <p class="font-size3">It's time for Lunch with the new costumers.</p>
+                        <p class="font-size3">.</p>
                     </div>
                 </div>
             </div>
@@ -63,13 +62,16 @@
             <div class="row">
                 <div class="col d-flex justify-content-end">
                     <div class="float-end pe-2 config-margin">
-                            <img src="../assts/configurações.png" alt="Config" height="150%">
+                        <img src="../assts/configurações.png" alt="Config" height="150%">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <script>
+        let diaAtual = new Date().getDate();
+
         function fetchCurrentTime() {
             fetch('/horaCerta')
                 .then(response => response.json())
@@ -78,13 +80,68 @@
                 })
                 .catch(error => console.error('Erro ao buscar a hora atual:', error));
         }
-        
-        // Atualizar a hora a cada segundo
-        setInterval(fetchCurrentTime, 1000);
-        
-        // Chamar a função ao carregar a página
-        window.onload = fetchCurrentTime;
-        </script>
-</body>
 
+        function getClima() {
+            fetch('/clima?cidade=Blumenau')
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('.current-temp').textContent = `Now: ${data.tempNow}°C`;
+                })
+                .catch(error => console.error('Erro ao buscar o clima:', error));
+        }
+
+        let ultimaHoraVerificada = null;
+
+        function fetchDate() {
+            const hoje = new Date();
+            const diaHoje = hoje.getDate();
+
+            // Se mudou para um novo dia, busca a data formatada e atualiza a tela
+            if (diaHoje !== diaAtual) {
+                fetch('/hoje')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('data-atual').textContent = data.dataCerta;
+                        diaAtual = diaHoje; // Atualiza o dia atual para o novo dia
+                    })
+                    .catch(error => console.error('Erro ao buscar a data atual:', error));
+            }
+        }
+
+        function fetchMensagem() {
+                fetch('/msn')
+                    .then(response => response.json())
+                    .then(data => {
+                        const mensagemElement = document.getElementById('mensagem');
+                        mensagemElement.textContent = data.mensagem.msn;
+                    })
+                    .catch(error => console.error('Erro ao buscar a mensagem:', error));
+        }
+
+
+        // Função que será chamada quando a página carregar
+        function onLoad() {
+            fetchCurrentTime(); // Chama a função de buscar a hora atual
+            getClima(); // Chama a função de buscar o clima
+            fetchDate(); // Chama a função para atualizar a data inicialmente
+            fetchMensagem(); // Chama a função para buscar a mensagem inicialmente
+
+        }
+        // Atualiza a hora a cada segundo
+        setInterval(fetchCurrentTime, 1000);
+
+        // Chama a função getClima a cada 15 minutos
+        setInterval(getClima, 900000); // 900000ms = 15 minutos
+
+        // Verifica a data a cada minuto
+        setInterval(fetchDate, 60000); // 60000ms = 1 minuto
+
+       // Verifica a mensagem a cada hora
+       setInterval(fetchMensagem, 3600000); // 3600000ms = 1 hora
+
+        // Atribuir a função onLoad ao carregar a janela
+        window.onload = onLoad;
+    </script>
+
+</body>
 </html>
