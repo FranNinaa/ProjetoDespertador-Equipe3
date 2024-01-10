@@ -1,11 +1,17 @@
 import express from 'express';
 import cors from 'cors';
 import routes from './src/routes.js';
+import path from 'path';
 import 'dotenv/config';
 import conexao from './src/app/database/conexao.js';
+import { fileURLToPath } from 'url';
 
 // Inicialize o app com express
 const app = express();
+
+// Obter o caminho do diretório atual
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Use o middleware CORS
 app.use(cors());
@@ -15,6 +21,7 @@ app.use(express.json());
 
 // Defina as rotas
 app.use('/', routes);
+
 
 // Checar conexão com o banco de dados
 conexao.getConnection((err, connection) => {

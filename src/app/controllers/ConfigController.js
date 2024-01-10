@@ -11,7 +11,7 @@ class ConfigController {
   }
 
   async postConfig(req, res) {
-    const {formatoHora, escalaTemp, cidade, sexo, nome} = req.body;
+    const {formatoHora, escalaTemp, cidade, sexo, nome} = req.query;
 
     //validação dos campos
     if(!formatoHora) return res.status(400).json({satus:1, mensagem: "O campo Formato Hora não é informado"});
