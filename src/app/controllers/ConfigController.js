@@ -14,11 +14,11 @@ class ConfigController {
     const {formatoHora, escalaTemp, cidade, sexo, nome} = req.body;
 
     //validação dos campos
-    if(!formatoHora) return res.status(400).json({satus:1, mensagem: "O campo Formato Hora não é informado"});
-    if(!escalaTemp) return res.status(400).json({satus:1, mensagem: "O campo Escala Temperatura não é informado"});
-    if(!cidade) return res.status(400).json({satus:1, mensagem: "O campo Cidade não informado"});
-    if(!sexo) return res.status(400).json({satus:1, mensagem: "O campo Sexo não é informado"});
-    if(!nome) return res.status(400).json({satus:1, mensagem: "O campo Nome não é informado"});
+    if(!formatoHora) return res.status(400).json({status:1, mensagem: "O campo Formato Hora não é informado"});
+    if(!escalaTemp) return res.status(400).json({status:1, mensagem: "O campo Escala Temperatura não é informado"});
+    if(!cidade) return res.status(400).json({status:1, mensagem: "O campo Cidade não informado"});
+    if(!sexo) return res.status(400).json({status:1, mensagem: "O campo Sexo não é informado"});
+    if(!nome) return res.status(400).json({status:1, mensagem: "O campo Nome não é informado"});
 
     try {
       await ConfigRepository.adicionarConfiguracao({ formatoHora, escalaTemp, cidade, sexo, nome });
