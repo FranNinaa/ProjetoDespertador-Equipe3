@@ -31,6 +31,10 @@ router.get("/msn", MensagemController.getMsn);
 //Rota Buscar todas as configurações salva no banco de dados
 router.get("/config",ConfigController.getConfig);
 
+router.get('/configPage', (req, res) => {
+    res.sendFile(path.join(__dirname, 'view/html/alarmTela2.html'));
+});
+
 //Rota para salvar as configurações no banco de dados
 router.post('/config', ConfigController.postConfig);
 
