@@ -19,9 +19,12 @@ app.use(cors());
 // Middleware para analisar JSON no corpo da requisição
 app.use(express.json());
 
+
+
 // Defina as rotas
 app.use('/', routes);
 
+app.use(express.static(path.join(__dirname,"/src/view")))
 
 // Checar conexão com o banco de dados
 conexao.getConnection((err, connection) => {
