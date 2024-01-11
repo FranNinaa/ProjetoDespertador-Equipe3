@@ -1,3 +1,4 @@
+document.querySelector("#adiarAlarme").style.display = "none"
 let diaAtual = new Date().getDate();
 
 function fetchCurrentTime() {
@@ -17,7 +18,13 @@ function getClima() {
     fetch('/clima?cidade=Blumenau')
         .then(response => response.json())
         .then(data => {
-            document.querySelector('.current-temp').textContent = `Now: ${data.tempNow}°C`;
+            let grausCelsius = data.tempNow
+            console.log(grausCelsius)
+            let grausFahrenheit = grausCelsius * 1.8 + 32
+            console.log(grausFahrenheit)
+            let grausKelvin = grausCelsius - 273
+            console.log(grausKelvin)
+            document.querySelector('.current-temp').textContent = "Now: " + grausCelsius + "°C";
         })
         .catch(error => console.error('Erro ao buscar o clima:', error));
 }
@@ -69,6 +76,7 @@ function onLoad() {
   
 
 }
+
 // Atualiza a hora a cada segundo
 setInterval(fetchCurrentTime, 1000);
 
@@ -80,6 +88,13 @@ setInterval(fetchMensagem, 3600000); // 3600000ms = 1 hora
 
 // Atribuir a função onLoad ao carregar a janela
 window.onload = onLoad;
+
+var chamarTela3 = document.getElementById('idBuscarTelaAlarmes')
+chamarTela3.addEventListener("click", tratamentoChamarTela3)
+function tratamentoChamarTela3() {
+    if (document.getElementById("idBuscarTelaAlarmes").textContent == "Set alarm.")
+    window.location.href = "/alarmPage"
+}
         
 
 
