@@ -1,75 +1,102 @@
-// Carregar as configurações ao abrir a página
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const response = await fetch('/config');
-        const configuracoes = await response.json();
+// Função para converter Celsius para Fahrenheit ou Kelvin e retornar uma string formatada
+function convertTemperature(celsius, scale) {
+    let convertedTemp;
+    let unit;
 
-        if (configuracoes && configuracoes.length > 0) {
-            const config = configuracoes[0];
-
-            const timeFormatInput = document.querySelector(`input[name="nmTimeFormat"][value="${config.formatoHora}"]`);
-            if (timeFormatInput) timeFormatInput.checked = true;
-
-            const temperatureFormatInput = document.querySelector(`input[name="nmTemperatureFormat"][value="${config.escalaTemp}"]`);
-            if (temperatureFormatInput) temperatureFormatInput.checked = true;
-
-            const cityInput = document.getElementById('idCity');
-            if (cityInput) cityInput.value = config.cidade;
-
-            const mrOrMrsInput = document.querySelector(`input[name="nmMrOrMrs"][value="${config.sexo === 'M' ? 'idMr' : 'idMrs'}"]`);
-            if (mrOrMrsInput) mrOrMrsInput.checked = true;
-
-            const nameInput = document.getElementById('idName');
-            if (nameInput) nameInput.value = config.nome;
-        }
-    } catch (error) {
-        console.error('Falha ao carregar configurações', error);
+    // Utiliza uma estrutura switch para lidar com diferentes escalas de temperatura
+    switch (scale) {
+        case 'idFahrenheit':
+            // Converte Celsius para Fahrenheit
+            convertedTemp = (celsius * 9 / 5) + 32;
+            unit = 'ºF';
+            break;
+        case 'idKelvin':
+            // Converte Celsius para Kelvin
+            convertedTemp = celsius + 273.15;
+            unit = 'ºK';
+            break;
+        default:
+            // Mantém a temperatura em Celsius se nenhum outro caso for correspondido
+            convertedTemp = celsius;
+            unit = 'ºC';
     }
-});
 
-// Enviar novas configurações ao submeter o formulário
-const form = document.getElementById('configForm');
-const statusMessage = document.getElementById('statusMessage');
+    // Retorna a temperatura convertida formatada como string
+    return `${convertedTemp.toFixed(2)} ${unit}`;
+}
 
-form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    console.log("Evento de submit acionado"); 
-
+// Função para atualizar as configurações no servidor
+async function updateConfig() {
+    // Coleta os valores dos inputs do formulário
     const formatoHora = document.querySelector('input[name="nmTimeFormat"]:checked').value;
     const escalaTemp = document.querySelector('input[name="nmTemperatureFormat"]:checked').value;
     const cidade = document.getElementById('idCity').value;
     const sexo = document.querySelector('input[name="nmMrOrMrs"]:checked').value;
     const nome = document.getElementById('idName').value;
-
-    console.log("Valores capturados:", formatoHora, escalaTemp, cidade, sexo, nome); // Verificar os valores capturados
-
-
-    // Construindo a URL com query parameters
-    const url = `/config?formatoHora=${encodeURIComponent(formatoHora)}&escalaTemp=${encodeURIComponent(escalaTemp)}&cidade=${encodeURIComponent(cidade)}&sexo=${encodeURIComponent(sexo)}&nome=${encodeURIComponent(nome)}`;
-
-        console.log("URL construída:", url);
-
-        // Redirecionando para a URL
-        window.location.href = url;
+    const newConfig = { formatoHora, escalaTemp, cidade, sexo, nome };
 
     try {
-        const response = await fetch('/config', {
+        // Envia os dados atualizados para o servidor
+        await fetch('/config', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newConfig)
         });
+        // Atualiza a mensagem de status
+        statusMessage.innerText = 'Configuração atualizada com sucesso!';
+    } catch (error) {
+        // Captura e exibe erros caso ocorram
+        console.error('Erro ao atualizar configuração', error);
+        statusMessage.innerText = 'Erro ao atualizar configuração.';
+    }
+}
 
-        const result = await response.json();
-        statusMessage.innerText = 'Configuração salva com sucesso!';
+// Carregar configurações e adicionar listeners quando a página for carregada
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // Faz uma requisição para obter as configurações atuais
+        const response = await fetch('/config');
+        const configuracoes = await response.json();
 
-        if (result.status === 0) {
-            window.location.href = '/';
+        // Se configurações foram recebidas, preenche os campos do formulário
+        if (configuracoes && configuracoes.length > 0) {
+            const config = configuracoes[0];
+
+            // Preenche os campos de cidade e nome
+            document.getElementById('idCity').value = config.cidade;
+            document.getElementById('idName').value = config.nome;
+
+            // Determina e marca o botão de rádio de gênero apropriado
+            let genderInputId;
+            if (config.sexo === 'M') {
+                genderInputId = 'idMr';
+            } else if (config.sexo === 'F') {
+                genderInputId = 'idMrs';
+            }
+
+            if (genderInputId) {
+                document.getElementById(genderInputId).checked = true;
+            }
+
+            // Marca a opção de escala de temperatura
+            const temperatureInputId = config.escalaTemp;
+            if (temperatureInputId) {
+                document.querySelector(`input[name="nmTemperatureFormat"][value="${temperatureInputId}"]`).checked = true;
+            }
+
+            // Dispara o evento 'change' para o formato de hora
+            const timeFormatInput = document.querySelector('input[name="nmTimeFormat"]:checked');
+            if (timeFormatInput) {
+                timeFormatInput.dispatchEvent(new Event('change'));
+            }
         }
     } catch (error) {
-        console.error('Erro ao enviar configuração', error);
-        statusMessage.innerText = 'Erro ao salvar configuração.';
+        // Captura e exibe erros caso ocorram
+        console.error('Falha ao carregar configurações', error);
     }
+
+    // Adiciona um event listener 'change' a todos os inputs para atualizar as configurações
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('change', updateConfig);
+    });
 });
