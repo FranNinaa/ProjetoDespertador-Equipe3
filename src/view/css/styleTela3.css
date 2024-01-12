@@ -101,3 +101,8 @@ p {
     left: 80%;
     top: 85%
 }
+
+
+.pointer {
+    cursor:pointer;
+}
