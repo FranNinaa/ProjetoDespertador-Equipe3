@@ -1,27 +1,28 @@
 <!-- Estrutura HTML -->
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="icon" type="image/x-icon" href="assets/images/despertador.png">
-    <link rel="stylesheet" type="text/css" href="../css/styleTela3.css" media="screen" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="icon" type="image/x-icon" href="assets/images/despertador.png">
+        <link rel="stylesheet" type="text/css" href="../css/styleTela3.css" media="screen" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
-
-<body>
-    <div class="container-fluid h-100 background">
+    </head>
+    
+    <body>
+        <script src="../js/tela3.js" defer></script>
+        <div class="container-fluid h-100 background">
         <div class="container custom-container pt-4 px-0">
             <div class="row">
                 <div class="col d-flex align-items-start">
                     <p class="fs-1 mb-0">Alarm</p>
                 </div>
 
-                <div class="col d-flex align-items-end justify-content-end">
-                    <p class="fs-4 new-alarm mb-0 mt-5">new alarm</p>
+                <div class="col d-flex align-items-end justify-content-end pointer">
+                    <p class="fs-4 new-alarm mb-0 mt-5" id="idBuscarTelaNovoAlarme">new alarm</p>
                 </div>
             </div>
         </div>
@@ -75,6 +76,7 @@
         </div>
 
     </div>
+
 </body>
 
 </html>

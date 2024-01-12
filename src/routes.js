@@ -39,6 +39,10 @@ router.get('/alarmPage', (req, res) => {
     res.sendFile(path.join(__dirname, 'view/html/alarmTela3.html'));
 });
 
+router.get('/newAlarmPage', (req, res) => {
+    res.sendFile(path.join(__dirname, 'view/html/alarmTela4.html'));
+});
+
 //Rota para salvar as configurações no banco de dados
 router.post('/config', ConfigController.postConfig);
 
