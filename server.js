@@ -20,11 +20,12 @@ app.use(cors());
 app.use(express.json());
 
 
-
 // Defina as rotas
 app.use('/', routes);
 
+// Servir arquivos estáticos (imagens, CSS, JavaScript do frontend)
 app.use(express.static(path.join(__dirname,"/src/view")))
+
 
 // Checar conexão com o banco de dados
 conexao.getConnection((err, connection) => {

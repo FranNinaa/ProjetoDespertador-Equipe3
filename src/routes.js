@@ -4,6 +4,7 @@ import DateTimeController from "./app/controllers/DateTimeController.js"
 import WeatherController from "./app/controllers/WeatherController.js"
 import MensagemController from "./app/controllers/MensagemController.js";
 import ConfigController from "./app/controllers/ConfigController.js";
+import { createAlarm } from './app/controllers/AlarmController.js';
 import { fileURLToPath } from 'url';
 
 const router = Router();
@@ -28,13 +29,6 @@ router.get("/clima", WeatherController.getClima);
 // Rota para mensagem de boas-vindas conforme o horário
 router.get("/msn", MensagemController.getMsn);
 
-//Rota Buscar todas as configurações salva no banco de dados
-router.get("/config",ConfigController.getConfig);
-
-router.get('/configPage', (req, res) => {
-    res.sendFile(path.join(__dirname, 'view/html/alarmTela2.html'));
-});
-
 router.get('/alarmPage', (req, res) => {
     res.sendFile(path.join(__dirname, 'view/html/alarmTela3.html'));
 });
@@ -42,6 +36,16 @@ router.get('/alarmPage', (req, res) => {
 router.get('/newAlarmPage', (req, res) => {
     res.sendFile(path.join(__dirname, 'view/html/alarmTela4.html'));
 });
+
+router.post('/novoAlarme', createAlarm);
+
+
+router.get('/configPage', (req, res) => {
+    res.sendFile(path.join(__dirname, 'view/html/alarmTela2.html'));
+});
+
+//Rota Buscar todas as configurações salva no banco de dados
+router.get("/config",ConfigController.getConfig);
 
 //Rota para salvar as configurações no banco de dados
 router.post('/config', ConfigController.postConfig);
