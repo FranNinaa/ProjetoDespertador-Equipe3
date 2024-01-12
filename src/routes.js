@@ -42,4 +42,12 @@ router.get('/alarmPage', (req, res) => {
 //Rota para salvar as configurações no banco de dados
 router.post('/config', ConfigController.postConfig);
 
+// Rota para atualizar uma configuração
+router.put('/config', ConfigController.updateConfig);
+
+// Rota para excluir uma configuração
+router.delete('/config/:id', ConfigController.deleteConfig);
+
+
+
 export default router; 
