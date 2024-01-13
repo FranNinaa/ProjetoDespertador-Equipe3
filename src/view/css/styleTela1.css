@@ -1,179 +1,179 @@
-@import url('stylesheetGeral.css');
+    @import url('stylesheetGeral.css');
 
-/* Background */
-@media (max-height: 929px) {
-    html,
-    body {
-        height: 929px;
-        margin: 0;
-    }
-}
-
-@media (min-height: 929px) {
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-    }
-}
-
-
-
-.row {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.background {
-    background-color: var(--neutral5);
-}
-
-p {
-    color: var(--neutral1);
-}
-
-
-/* Botão */
-.button {
-    display: inline-block;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    border: 2px solid var(--afternoon2);
-    /* Cor da borda do botão */
-    color: var(--afternoon2);
-    /* Cor do texto do botão */
-    background-color: var(--neutral5);
-    /* Cor de fundo do botão */
-    border-radius: 4px;
-    /* Raio das bordas do botão */
-    transition: background-color 0.3s, color 0.3s;
-    /* Adiciona uma transição suave ao hover */
-}
-
-
-/* Hover */
-.button:hover {
-    background-color: var(--afternoon2);
-    /* Cor de fundo ao passar o mouse */
-    color: var(--neutral5);
-    /* Cor do texto ao passar o mouse */
-}
-
-.button2 {
-    display: inline-block;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    border: 2px solid var(--afternoon3);
-    /* Cor da borda do botão */
-    color: var(--afternoon3);
-    /* Cor do texto do botão */
-    background-color: var(--neutral5);
-    /* Cor de fundo do botão */
-    border-radius: 4px;
-    /* Raio das bordas do botão */
-    transition: background-color 0.3s, color 0.3s;
-    /* Adiciona uma transição suave ao hover */
-}
-
-.button2:hover {
-    background-color: var(--afternoon2);
-    /* Cor de fundo ao passar o mouse */
-    color: var(--neutral4);
-    /* Cor do texto ao passar o mouse */
-}
-
-@media screen and (orientation: landscape) {
-    .relogio {
-        font-size: 1400%;
-        font-family: 'Digital', Helvetica, sans-serif;
-        margin-left: -3%;
+    /* Background */
+    @media (max-height: 929px) {
+        html,
+        body {
+            height: 929px;
+            margin: 0;
+        }
     }
 
-    .font-size {
-        font-size: 2rem;
+    @media (min-height: 929px) {
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
     }
 
-    .font-size2 {
-        font-size: 2.3rem;
+
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
     }
 
-    .font-size3 {
-        font-size: 2rem;
+    .background {
+        background-color: var(--neutral5);
     }
 
-    .config-margin {
-        margin-top: 5%;
+    .colorFonte {
+        color: var(--neutral2);
     }
 
-    .time-margin {
-        margin-top: 5%;
-    }
 
-    .text-margin {
-        margin-top: 1.5%;
-    }
-
+    /* Botão */
     .button {
-        padding: 0.5% 20%;
+        display: inline-block;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+        border: 2px solid var(--neutral1);
+        /* Cor da borda do botão */
+        color: var(--neutral1);
+        /* Cor do texto do botão */
+        background-color: var(--neutral5);
+        /* Cor de fundo do botão */
+        border-radius: 4px;
+        /* Raio das bordas do botão */
+        transition: background-color 0.3s, color 0.3s;
+        /* Adiciona uma transição suave ao hover */
+    }
+
+
+    /* Hover */
+    .button:hover {
+        background-color: var(--neutral1);
+        /* Cor de fundo ao passar o mouse */
+        color: var(--neutral5);
+        /* Cor do texto ao passar o mouse */
     }
 
     .button2 {
-        padding: 0.5% 20.7%;
+        display: inline-block;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+        border: 2px solid var(--neutral1);
+        /* Cor da borda do botão */
+        color: var(--neutral1);
+        /* Cor do texto do botão */
+        background-color: var(--neutral5);
+        /* Cor de fundo do botão */
+        border-radius: 4px;
+        /* Raio das bordas do botão */
+        transition: background-color 0.3s, color 0.3s;
+        /* Adiciona uma transição suave ao hover */
     }
 
-    .margin-negative {
-        margin-top: -9%;
-        margin-left: 4%;
-    }
-}
-
-@media screen and (orientation: portrait) {
-    .relogio {
-        font-size: 600%;
-        font-family: 'Digital', Helvetica, sans-serif;
-        margin-left: -3%;
+    .button2:hover {
+        background-color: var(--neutral1);
+        /* Cor de fundo ao passar o mouse */
+        color: var(--neutral4);
+        /* Cor do texto ao passar o mouse */
     }
 
-    .font-size {
-        font-size: 1.3rem;
+    @media screen and (orientation: landscape) {
+        .relogio {
+            font-size: 1400%;
+            font-family: 'Digital', Helvetica, sans-serif;
+            margin-left: -3%;
+        }
+
+        .font-size {
+            font-size: 2rem;
+        }
+
+        .font-size2 {
+            font-size: 2.3rem;
+        }
+
+        .font-size3 {
+            font-size: 2rem;
+        }
+
+        .config-margin {
+            margin-top: 5%;
+        }
+
+        .time-margin {
+            margin-top: 5%;
+        }
+
+        .text-margin {
+            margin-top: 1.5%;
+        }
+
+        .button {
+            padding: 0.5% 20%;
+        }
+
+        .button2 {
+            padding: 0.5% 20.7%;
+        }
+
+        .margin-negative {
+            margin-top: -9%;
+            margin-left: 4%;
+        }
     }
 
-    .font-size2 {
-        font-size: 2.3rem;
-    }
+    @media screen and (orientation: portrait) {
+        .relogio {
+            font-size: 600%;
+            font-family: 'Digital', Helvetica, sans-serif;
+            margin-left: -3%;
+        }
 
-    .font-size3 {
-        font-size: 1rem;
-    }
+        .font-size {
+            font-size: 1.3rem;
+        }
 
-    .font-size4 {
-        font-size: 0.7rem;
-    }
+        .font-size2 {
+            font-size: 2.3rem;
+        }
 
-    .config-margin {
-        margin-top: 37%;
-    }
+        .font-size3 {
+            font-size: 1rem;
+        }
 
-    .time-margin {
-        margin-top: 37%;
-    }
+        .font-size4 {
+            font-size: 0.7rem;
+        }
 
-    .text-margin {
-        margin-top: 2%;
-    }
+        .config-margin {
+            margin-top: 37%;
+        }
 
-    .button {
-        padding: 0.5% 20%;
-    }
+        .time-margin {
+            margin-top: 37%;
+        }
 
-    .button2 {
-        padding: 0.5% 22.3%;
-    }
+        .text-margin {
+            margin-top: 2%;
+        }
 
-    .margin-negative {
-        margin-top: -10%;
-        margin-left: 2%;
+        .button {
+            padding: 0.5% 20%;
+        }
+
+        .button2 {
+            padding: 0.5% 22.3%;
+        }
+
+        .margin-negative {
+            margin-top: -10%;
+            margin-left: 2%;
+        }
     }
-}
