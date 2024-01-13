@@ -3,25 +3,74 @@ function updateBackgroundColor() {
     const currentTime = new Date();
     const hours = currentTime.getHours();
     const minutes = currentTime.getMinutes();
+    let amanhecerTotal;
+    let anoitecerTotal;
+    fetch('/clima?cidade=Blumenau')
+        .then(response => response.json())
+        .then(data => {
+            let amanhecer = data.sunrise
+            let amOuPmAmanhecer = amanhecer[6] + amanhecer[7]
+            let amanhecerHoras = amanhecer[0] + amanhecer[1]
+            if (amOuPmAmanhecer == "pm") {
+                amanhecerHoras = amanhecerHoras * 1 + 12
+            }
+            let amanhecerMinutos = amanhecer[3] + amanhecer[4]
+            amanhecerTotal = amanhecerHoras * 60 + Number(amanhecerMinutos)
+            let anoitecer = data.sunset
+            let amOuPmAnoitecer = anoitecer[6] + anoitecer[7]
+            let anoitecerHoras = anoitecer[0] + anoitecer[1]
+            if (amOuPmAnoitecer == "pm") {
+                anoitecerHoras = anoitecerHoras * 1 + 12
+            }
+            let anoitecerMinutos = anoitecer[3] + anoitecer[4]
+            anoitecerTotal = anoitecerHoras * 60 + Number(anoitecerMinutos)
 
-    const timeInMinutes = hours * 60 + minutes;
+            const timeInMinutes = hours * 60 + minutes;
+            let backgroundColor;
+            if (timeInMinutes >= amanhecerTotal && timeInMinutes < 720) {
+                bordaBotao = "2px solid var(--sunrise4)";
+                fonteBotao = "var(--sunrise4)"
+                backColorBotao = "var(--sunrise4)"
+                fonteGeral = "var(--sunrise2)"
+            }
+            else if (timeInMinutes >= 720 && timeInMinutes <= anoitecerTotal) {
+                bordaBotao = "2px solid var(--noon4)";
+                fonteBotao = "var(--noon4)"
+                backColorBotao = "var(--noon4)"
+                fonteGeral = "var(--noon2)"
+            }
+            else if (timeInMinutes >= anoitecer && timeInMinutes < 1320) {
+                bordaBotao = "2px solid var(--afternoon4)";
+                fonteBotao = "var(--afternoon4)"
+                backColorBotao = "var(--afternoon4)"
+                fonteGeral = "var(--afternoon2)"
+            }
+            else {
+                bordaBotao = "2px solid var(--night4)";
+                fonteBotao = "var(--night4)"
+                backColorBotao = "var(--night4)"
+                fonteGeral = "var(--night2)"
+            }
+            const elementosColorFonte = document.querySelectorAll('.colorFonte');
+            elementosColorFonte.forEach(function(elemento) {
+                elemento.style.color = fonteGeral;
+            });
 
-    let backgroundColor; 
+            const button = document.querySelector('.button');
+            button.style.border = bordaBotao;
+            button.style.color = fonteBotao;
+            button.style.backgroundColor = '';
+            button.addEventListener('mouseover', function () {
+                button.style.backgroundColor = backColorBotao;
+                button.style.color = "var(--neutral5)";
+            });
+            button.addEventListener('mouseout', function () {
+                button.style.backgroundColor = '';
+                button.style.color = fonteBotao;
+            });
 
-    if (timeInMinutes >= 300 && timeInMinutes < 720) {
-        const sunriseColors = ['#ffe0bf', '#f3b3a9', '#e88ea0', '#c885b9', '#9863b1'];
-        backgroundColor = sunriseColors[Math.floor((timeInMinutes - 300) / 84)];
-    }
-    else if (timeInMinutes >= 720 && timeInMinutes <= 1470) {
-        const afternoonColors = ['#d1f5f3', '#aeecf3', '#5fd7f9', '#54b3ed', '#fefed9'];
-        backgroundColor = afternoonColors[Math.floor((timeInMinutes - 720) / 150)];
-    }
-    else {
-        const nightColors = ['#dbdafc', '#9594c8', '#4c4690', '#3d3473', '#373252'];
-        let nightTime = timeInMinutes > 1320 ? timeInMinutes - 1320 : timeInMinutes + 240;
-        backgroundColor = nightColors[Math.floor(nightTime / 72)];
-    }
-    document.querySelector('.background').style.backgroundColor = backgroundColor;
+        })
+        .catch(error => console.error('Erro ao carrecar informações:', error));
 }
 
 
@@ -47,11 +96,11 @@ function getClima() {
         .then(response => response.json())
         .then(data => {
             let grausCelsius = data.tempNow
-            console.log(grausCelsius)
+            console.log(grausCelsius + "c")
             let grausFahrenheit = grausCelsius * 1.8 + 32
-            console.log(grausFahrenheit)
+            console.log(grausFahrenheit + "f")
             let grausKelvin = grausCelsius - 273
-            console.log(grausKelvin)
+            console.log(grausKelvin + "k")
             document.querySelector('.current-temp').textContent = "Now: " + grausCelsius + "°C";
         })
         .catch(error => console.error('Erro ao buscar o clima:', error));
@@ -68,8 +117,7 @@ function fetchDate() {
         .then(response => response.json())
         .then(data => {
             document.getElementById('data-atual').textContent = data.dataCerta;
-            diaAtual = diaHoje; 
-            console.log(data)
+            diaAtual = diaHoje;
         })
         .catch(error => console.error('Erro ao buscar a data atual:', error));
 
@@ -80,7 +128,6 @@ function fetchDate() {
             .then(data => {
                 document.getElementById('data-atual').textContent = data.dataCerta;
                 diaAtual = diaHoje;
-                console.log(data)
             })
             .catch(error => console.error('Erro ao buscar a data atual:', error));
     }
