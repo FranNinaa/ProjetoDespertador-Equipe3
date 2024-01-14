@@ -19,7 +19,7 @@ class AlarmRepository {
     }
 
     saveAlarm(alarmData) {
-        const dataToSave = `${alarmData.isAtivo},${alarmData.hora},${alarmData.isAm},${alarmData.descricao},${alarmData.id}\n`;
+        const dataToSave = `\n${alarmData.isAtivo},${alarmData.hora},${alarmData.isAm},${alarmData.descricao},${alarmData.id}`;
         fs.appendFileSync(this.filePath, dataToSave, 'utf8');
     }
 
