@@ -4,7 +4,7 @@ import DateTimeController from "./app/controllers/DateTimeController.js"
 import WeatherController from "./app/controllers/WeatherController.js"
 import MensagemController from "./app/controllers/MensagemController.js";
 import ConfigController from "./app/controllers/ConfigController.js";
-import { createAlarm } from './app/controllers/AlarmController.js';
+import { createAlarm, getAllAlarms } from './app/controllers/AlarmController.js';
 import { fileURLToPath } from 'url';
 
 const router = Router();
@@ -36,6 +36,8 @@ router.get('/alarmPage', (req, res) => {
 router.get('/newAlarmPage', (req, res) => {
     res.sendFile(path.join(__dirname, 'view/html/alarmTela4.html'));
 });
+
+router.get('/todosAlarmes', getAllAlarms);
 
 router.post('/novoAlarme', createAlarm);
 
