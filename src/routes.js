@@ -4,7 +4,7 @@ import DateTimeController from "./app/controllers/DateTimeController.js"
 import WeatherController from "./app/controllers/WeatherController.js"
 import MensagemController from "./app/controllers/MensagemController.js";
 import ConfigController from "./app/controllers/ConfigController.js";
-import { createAlarm, getAllAlarms } from './app/controllers/AlarmController.js';
+import { createAlarm, getAllAlarms, updateAlarmStatus } from './app/controllers/AlarmController.js';
 import { fileURLToPath } from 'url';
 
 const router = Router();
@@ -40,6 +40,8 @@ router.get('/newAlarmPage', (req, res) => {
 router.get('/todosAlarmes', getAllAlarms);
 
 router.post('/novoAlarme', createAlarm);
+
+router.put('/atualizarStatusAlarme', updateAlarmStatus);
 
 
 router.get('/configPage', (req, res) => {

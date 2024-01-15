@@ -40,6 +40,25 @@ class AlarmRepository {
 
         return alarms;
     }
+
+    updateAlarmStatus(id, isAtivo) {
+        const fileContent = fs.readFileSync(this.filePath, 'utf8');
+        const lines = fileContent.trim().split('\n');
+        const headers = lines[0].split(',');
+        const updatedLines = lines.map((line, index) => {
+            if (index === 0) return line;
+
+            const values = line.split(',');
+            const alarmId = parseInt(values[headers.indexOf('id')]);
+
+            if (alarmId == id) {
+                values[headers.indexOf('isAtivo')] = isAtivo;
+            }
+
+            return values.join(',');
+        });
+        fs.writeFileSync(this.filePath, updatedLines.join('\n'), 'utf8');
+    }
 }
 
 export default new AlarmRepository();

@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }    
             })    
             .catch(error => console.error('Erro ao obter os alarmes:', error));
+
+            window.location.href = "/alarmPage";
     });
 
     function getMaxId(alarmList) {
