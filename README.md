@@ -4,10 +4,6 @@
 A equipe é composta por:
 
 - [Felipe Gabriel Kretzer](https://github.com/kretzerfelipe)
-- [Elias Vinícius Raitz de Oliveira](https://github.com/EliasViniciusRaitz)
-- [Stéphanie Possamai](https://github.com/Stephanieposs)
-- [Letícia de Lima da Cunha](https://github.com/Leticia-LC)
-- [Amabile Forster](https://github.com/AmabileForster)
 - [Francine dos Santos](https://github.com/FranNinaa)
 
 ## Objetivos
@@ -98,7 +94,7 @@ Desenvolver um Relógio-Despertador que apresente a hora, dados meteorológicos 
 As telas devem seguir paletas de cores específicas para diferentes momentos do dia, proporcionando uma experiência visual agradável.
 
 ### Protótipo das Telas
-Figma - Protótipo
+Bootstrap - Protótipo
 
 ### Ringtones
 Ringtones podem ser obtidos nos sites:
