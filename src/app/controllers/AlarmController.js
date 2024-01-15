@@ -18,3 +18,13 @@ export const getAllAlarms = async (req, res) => {
         res.status(500).send('Erro ao obter os alarmes: ' + error.message);
     }
 };
+
+export const updateAlarmStatus = async (req, res) => {
+    try {
+        const { id, isAtivo } = req.body;
+        AlarmRepository.updateAlarmStatus(id, isAtivo);
+        res.status(200).send('Status do alarme atualizado com sucesso!');
+    } catch (error) {
+        res.status(500).send('Erro ao atualizar o status do alarme: ' + error.message);
+    }
+};
